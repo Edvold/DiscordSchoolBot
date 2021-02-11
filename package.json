@@ -10,5 +10,14 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^12.5.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Edvold/DiscordSchoolBot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Edvold/DiscordSchoolBot/issues"
+  },
+  "homepage": "https://github.com/Edvold/DiscordSchoolBot#readme"
 }
