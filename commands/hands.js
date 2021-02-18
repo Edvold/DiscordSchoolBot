@@ -94,4 +94,4 @@ class Hands {
 
 }
 
-let handsClass = new Hands();
+const handsClass = new Hands();
