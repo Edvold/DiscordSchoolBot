@@ -30,11 +30,17 @@ client.on('message', message =>{
     if (command === 'hands') {
         client.commands.get('hands').execute(message, args);
     } else if (command === 'mute' || command === 'unmute') {
-        if (command === 'mute') {
-            client.commands.get('mute').execute(message, args, true);
+        // only the teacher can use these commmands
+        if (message.member.roles.cache.has('811920217377865738')) {
+            if (command === 'mute') {
+                client.commands.get('mute').execute(message, args, true);
+            } else {
+                client.commands.get('mute').execute(message, args, false);
+            }
         } else {
-            client.commands.get('mute').execute(message, args, false);
+            message.author.send("You are not allowed to use this command!");
         }
+        
         
     }
     

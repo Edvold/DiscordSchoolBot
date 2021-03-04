@@ -34,6 +34,7 @@ class Mute {
 
         } else {
             const student = message.guild.members.cache.find(user => user.displayName === name);
+            console.log(typeof this.mutedPersons);
             this.mutedPersons.push(student);
             student.roles.remove(elevRole);
             student.roles.add(muteRole);
@@ -59,8 +60,10 @@ class Mute {
             // remove name from array
             const student = message.guild.members.cache.find(user => user.displayName === name);
             const index = this.mutedPersons.indexOf(student)
-            if (index>= 0) {
-                this.mutedPersons = this.mutedPersons.slice(0,index-1) + this.mutedPersons.slice(index);
+            if (index >= 1) {
+                this.mutedPersons = this.mutedPersons.slice(0,index) + this.mutedPersons.slice(index+1);
+            } else if (index === 0) {
+                this.mutedPersons = this.mutedPersons.slice(1);
             }
             student.roles.remove(muteRole);
             student.roles.add(elevRole);
