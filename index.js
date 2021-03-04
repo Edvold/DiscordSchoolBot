@@ -40,8 +40,6 @@ client.on('message', message =>{
         } else {
             message.author.send("You are not allowed to use this command!");
         }
-        
-        
     }
     
 
