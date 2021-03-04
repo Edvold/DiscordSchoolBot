@@ -29,7 +29,15 @@ client.on('message', message =>{
 
     if (command === 'hands') {
         client.commands.get('hands').execute(message, args);
+    } else if (command === 'mute' || command === 'unmute') {
+        if (command === 'mute') {
+            client.commands.get('mute').execute(message, args, true);
+        } else {
+            client.commands.get('mute').execute(message, args, false);
+        }
+        
     }
+    
 
 })
 

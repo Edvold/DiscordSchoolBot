@@ -17,7 +17,7 @@ module.exports = {
 
             case 'lower':
                 // if student then lower their hand if teacher lower either specific hand or all hands. The number is the teacher role
-                if (message.member.roles.cache.has('809395555062906880')) {
+                if (message.member.roles.cache.has('811920217377865738')) {
                     //checks if the teacher has given a name or not
                     if (args[1] != undefined) {
                         handsClass.lowerHand(args[1]);
@@ -37,7 +37,7 @@ module.exports = {
 
             case 'get':
                 // Can only be executed by teacher role
-                if (message.member.roles.cache.has('809395555062906880')) {
+                if (message.member.roles.cache.has('811920217377865738')) {
                     message.channel.send(handsClass.returnHands());
                 } else {
                     message.author.send("You don't have permission to use this command");
