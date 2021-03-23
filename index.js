@@ -41,11 +41,16 @@ client.on('message', message =>{
             message.author.send("You are not allowed to use this command!");
         }
     } else if (command === 'groups') {
-        client.commands.get('groups').execute(message, args);
+        if (message.member.roles.cache.has('811920217377865738')) {
+            client.commands.get('groups').execute(message, args);
+        } else {
+            message.author.send("You are not allowed to use this command!");
+        }
+    } else if (command === 'absence') {
+        client.commands.get('absence').execute(message);
     }
     
-
-})
+});
 
 
 

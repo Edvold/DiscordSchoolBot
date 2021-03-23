@@ -8,7 +8,9 @@ module.exports = {
     
             } else if (args[0] === 'all') {
                 message.channel.send(group.groupHandler(message, false, args[1]));
-            } 
+            }  else if (args[0] === 'back') {
+                group.retrieveStudents(message);
+            }
         } catch (error) {
             console.log(error);
         }
@@ -20,6 +22,7 @@ class GroupMaker {
     constructor() {
         this.groups = [];
         this.studentRole = '811920245563719681';
+        this.mainChannel = '803532465867587628'
     }
 
     groupHandler(message, onlyOnline, groupSize) {
@@ -50,7 +53,7 @@ class GroupMaker {
 
         this.channelDeleter(message);
         this.channelMaker(message, this.groups.length);
-        setTimeout(() => this.sendToChannel(message, this.groups), 500);
+        if (onlyOnline) setTimeout(() => this.sendToChannel(message, this.groups), 500);
 
         
         return this.groups;
@@ -115,6 +118,20 @@ class GroupMaker {
                 });
             }); 
         });
+    }
+
+    retrieveStudents(message) {
+        const students = message.guild.members.cache.filter(m => m.presence.status === "online");
+            let onlineStudents = [];
+            students.forEach(m => {
+                if (m.roles.cache.some(role => role.id === this.studentRole)) {
+                    onlineStudents.push(m);
+                }
+            });
+
+            onlineStudents.forEach(s => {
+                s.voice.setChannel(this.mainChannel);
+            })
     }
 }
 
