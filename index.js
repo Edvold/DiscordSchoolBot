@@ -40,6 +40,8 @@ client.on('message', message =>{
         } else {
             message.author.send("You are not allowed to use this command!");
         }
+    } else if (command === 'groups') {
+        client.commands.get('groups').execute(message, args);
     }
     
 
