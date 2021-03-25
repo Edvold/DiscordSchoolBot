@@ -48,6 +48,8 @@ client.on('message', message =>{
         }
     } else if (command === 'absence') {
         client.commands.get('absence').execute(message);
+    } else if (command === 'questions') {
+        client.commands.get('questions').execute(message, args);
     }
     
 });

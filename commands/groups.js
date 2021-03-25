@@ -53,6 +53,7 @@ class GroupMaker {
 
         this.channelDeleter(message);
         this.channelMaker(message, this.groups.length);
+        // need to wait for all channels to be created properly before populating them
         if (onlyOnline) setTimeout(() => this.sendToChannel(message, this.groups), 500);
 
         
@@ -79,6 +80,14 @@ class GroupMaker {
                 }
                 this.groups.push(tempArray);
             }
+            // if there are still students left then add them to groups
+            if (students.length !== 0) {
+                for (let i = 0; i<students.length; i++) {
+                    this.groups[i].push(students[i]);
+                }
+            }
+
+
 
 
     }
