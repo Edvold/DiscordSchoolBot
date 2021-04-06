@@ -4,10 +4,10 @@ module.exports = {
     commands: ['question', 'questions', 'quest', 'q', 'spørgsmål'],
     expectedArgs: '[add] OR [get] (all)',
     minArgs: 1,
-    maxArgs: 2,
+    
     callback: (message, args, text) => {
         if (args[0] === 'add') {
-            questions.add(args)
+            questions.add(text)
         } else if (args[0] === 'get') {
             if (questions.questions.length === 0) return message.author.send('There are no questions at the moment');
             if (args[1] === 'all') return message.channel.send(questions.get(true));
@@ -22,10 +22,9 @@ class Questions {
         this.questions = [];
     }
 
-    add(args) {
-        args.splice(0, 1);
-        args = args.join(' ');
-        this.questions.push(args);
+    add(text) {
+        text = text.substring(4);
+        this.questions.push(text);
 
 
     }
