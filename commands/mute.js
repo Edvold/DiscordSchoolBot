@@ -6,6 +6,7 @@ module.exports = {
     expectedArgs: '[mute] (student) OR [unmute] (student)',
     minArgs: 1,
     maxArgs: 2,
+    permissions: ['ADMINISTRATOR'],
     callback: (message, args, text) => {
 
         const messageArr = message.content.split(' ');
