@@ -4,6 +4,7 @@ module.exports = {
     name: 'absence',
     description: 'returns all offline students',
     commands: ['absence', 'fravær', 'absent'],
+    permissions: ['ADMINISTRATOR'],
     
     callback: (message, args, text) => {
         const absentStudents = absence.checkAbsence(message);
