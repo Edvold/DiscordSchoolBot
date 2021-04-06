@@ -19,7 +19,7 @@ module.exports = {
 class Absence {
 
     constructor() {
-        this.studentRole = config.StudentRole;
+        this.studentRole = config.studentRole;
     }
 
     checkAbsence(message) {

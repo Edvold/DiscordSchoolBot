@@ -22,8 +22,8 @@ module.exports =  {
 class GroupMaker {
     constructor() {
         this.groups = [];
-        this.studentRole =  "811920245563719681";
-        this.mainChannel = '803532465867587628';
+        this.studentRole = config.studentRole;
+        this.mainChannel = config.mainChannel;
     }
 
     groupHandler(message, onlyOnline, groupSize) {
