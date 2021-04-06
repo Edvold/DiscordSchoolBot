@@ -1,21 +1,40 @@
+// module.exports = {
+//     name: 'mute',
+//     description: 'Mute students',
+//     execute(message, args, mute) {
+//         if (mute === true) {
+//             muteClass.mute(message, args[0]);
+//         } else {
+//             muteClass.unmute(message, args[0]);
+//         }
+//     }
+//}
+const config = require('../config.json')
 module.exports = {
     name: 'mute',
     description: 'Mute students',
-    execute(message, args, mute) {
-        if (mute === true) {
+    commands: ['mute', 'silence', 'm', 'dæmp', 'unmute', 'um', 'udæmp'],
+    expectedArgs: '[mute] (student) OR [unmute] (student)',
+    minArgs: 1,
+    maxArgs: 2,
+    callback: (message, args, text) => {
+
+        const messageArr = message.content.split(' ');
+        const firstWord = messageArr[0].substring(1);
+
+        if (firstWord === 'mute' || firstWord === 'silence' || firstWord === 'm' || firstWord === 'dæmp') {
             muteClass.mute(message, args[0]);
         } else {
             muteClass.unmute(message, args[0]);
         }
     }
-
 }
 
 class Mute {
 
     constructor() {
         this.mutedPersons = [];
-        this.studentRole = '811920245563719681';
+        this.studentRole = config.studentRole;
     }
 
     mute(message, name = "") {

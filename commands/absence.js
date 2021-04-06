@@ -1,15 +1,25 @@
+const config = require('../config.json')
+
 module.exports = {
     name: 'absence',
     description: 'returns all offline students',
-    execute(message) {
-        message.channel.send(absence.checkAbsence(message));
+    commands: ['absence', 'fravær', 'absent'],
+    
+    callback: (message, args, text) => {
+        const absentStudents = absence.checkAbsence(message);
+        if (absentStudents.length > 0) {
+            message.channel.send(absentStudents);
+        } else {
+            message.channel.send('There are no absent students today');
+        }
+        
     }
 }
 
 class Absence {
 
     constructor() {
-        this.studentRole = '811920245563719681';
+        this.studentRole = config.StudentRole;
     }
 
     checkAbsence(message) {

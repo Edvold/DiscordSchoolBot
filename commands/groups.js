@@ -1,28 +1,48 @@
-module.exports = {
+// module.exports = {
+//     name: 'groups',
+//     description: 'Automatically create groups',
+//     execute(message, args) {
+//         try {
+//             if (args[0] === 'online') {
+//                 message.channel.send(group.groupHandler(message, true, args[1]));
+    
+//             } else if (args[0] === 'all') {
+//                 message.channel.send(group.groupHandler(message, false, args[1]));
+//             }  else if (args[0] === 'back') {
+//                 group.retrieveStudents(message);
+//             }
+//         } catch (error) {
+//             console.log(error);
+//         }
+        
+//     }
+// }
+const config = require('../config.json')
+
+module.exports =  {
     name: 'groups',
     description: 'Automatically create groups',
-    execute(message, args) {
-        try {
-            if (args[0] === 'online') {
-                message.channel.send(group.groupHandler(message, true, args[1]));
-    
-            } else if (args[0] === 'all') {
-                message.channel.send(group.groupHandler(message, false, args[1]));
-            }  else if (args[0] === 'back') {
-                group.retrieveStudents(message);
-            }
-        } catch (error) {
-            console.log(error);
+    commands: ['group', 'groups', 'gm', 'gruppe', 'grupper'],
+    expectedArgs: '[online] [students per group] OR [all] [students per group] OR [back]',
+    minArgs: 1,
+    maxArgs: 2,
+    callback: (message, args, text) => {
+        if (args[0] === 'online') {
+            message.channel.send(group.groupHandler(message, true, args[1]));
+
+        } else if (args[0] === 'all') {
+            message.channel.send(group.groupHandler(message, false, args[1]));
+        }  else if (args[0] === 'back') {
+            group.retrieveStudents(message);
         }
-        
     }
 }
 
 class GroupMaker {
     constructor() {
         this.groups = [];
-        this.studentRole = '811920245563719681';
-        this.mainChannel = '803532465867587628'
+        this.studentRole =  "811920245563719681";
+        this.mainChannel = '803532465867587628';
     }
 
     groupHandler(message, onlyOnline, groupSize) {

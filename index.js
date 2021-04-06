@@ -2,23 +2,33 @@ const Discord = require('discord.js');
 
 const client = new Discord.Client();
 
-const prefix = '!';
+const config = require('./config.json')
+
+const path = require('path');
 
 const fs = require('fs');
 
 client.commands = new Discord.Collection();
 
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
-
-for (const file of commandFiles) {
-    const command = require(`./commands/${file}`);
-    client.commands.set(command.name, command);
-}
-
-client.once('ready', () => {
+client.on('ready', () => {
     console.log('Schoolbot is online');
+
+    const handlerName = 'commandHandler.js';
+    const commandHandler = require(`./commands/${handlerName}`);
+    function readCommands(dir) {
+        const files = fs.readdirSync(path.join(__dirname, dir));
+        for (file of files) {
+            if (file !== handlerName) {
+                const option = require(path.join(__dirname, dir, file));
+                commandHandler(client, option);
+            }
+        }
+    }
+
+    readCommands('commands');
 });
 
+/*
 client.on('message', message =>{
     if (!message.content.startsWith(prefix) || message.author.bot) {
         return;
@@ -52,8 +62,8 @@ client.on('message', message =>{
         client.commands.get('questions').execute(message, args);
     }
     
-});
+});*/
 
 
 
-client.login('ODAzNTM3NTUwMTczMjc0MTUz.YA_OqA.05MAfZnZVuNYV7UKR3uQbNciEQY');
+client.login(config.token);
