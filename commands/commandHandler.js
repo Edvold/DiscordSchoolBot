@@ -36,7 +36,7 @@ module.exports = (client, options) => {
 
                 //Check if we have the correct number of arguments
                 if(args.length < minArgs || (maxArgs !== null && args.length > maxArgs)) {
-                    message.guild.channel.send(`That doesn\'t look right. Use ${prefix}${alias} ${expectedArgs}`)
+                    message.channel.send(`That doesn\'t look right. Use ${prefix}${alias} ${expectedArgs}`)
                     return;
                 }
 
