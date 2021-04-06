@@ -46,7 +46,5 @@ module.exports = (client, options) => {
                 return;
             }
         }
-
-
     });
 }

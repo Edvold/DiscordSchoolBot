@@ -1,18 +1,3 @@
-// module.exports = {
-//     name: 'questions',
-//     description: 'Make and read written questions',
-//     execute(message, args) {
-//         if (args[0] === 'add') {
-//             questions.add(args)
-//         } else if (args[0] === 'get') {
-//             if (questions.questions.length === 0) return message.author.send('There are no questions at the moment');
-//             if (args[1] === 'all') return message.channel.send(questions.get(true));
-//             message.channel.send(questions.get(false));
-            
-//         }
-//     }
-// }
-
 module.exports = {
     name: 'questions',
     description: 'Make and read written questions',

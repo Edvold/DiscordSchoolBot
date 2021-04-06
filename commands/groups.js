@@ -1,22 +1,3 @@
-// module.exports = {
-//     name: 'groups',
-//     description: 'Automatically create groups',
-//     execute(message, args) {
-//         try {
-//             if (args[0] === 'online') {
-//                 message.channel.send(group.groupHandler(message, true, args[1]));
-    
-//             } else if (args[0] === 'all') {
-//                 message.channel.send(group.groupHandler(message, false, args[1]));
-//             }  else if (args[0] === 'back') {
-//                 group.retrieveStudents(message);
-//             }
-//         } catch (error) {
-//             console.log(error);
-//         }
-        
-//     }
-// }
 const config = require('../config.json')
 
 module.exports =  {

@@ -1,14 +1,3 @@
-// module.exports = {
-//     name: 'mute',
-//     description: 'Mute students',
-//     execute(message, args, mute) {
-//         if (mute === true) {
-//             muteClass.mute(message, args[0]);
-//         } else {
-//             muteClass.unmute(message, args[0]);
-//         }
-//     }
-//}
 const config = require('../config.json')
 module.exports = {
     name: 'mute',
