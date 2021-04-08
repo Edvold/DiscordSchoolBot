@@ -31,8 +31,6 @@ class Questions {
         //removing the 'add' from the text
         text = text.substring(4);
         this.questions.push(text);
-
-
     }
 
     get(all) {
@@ -51,7 +49,7 @@ class Questions {
 
     sendNotification(message) {
         // notifies the teachers that a question has been asked
-        const teachers = message.guild.roles.cache.get(this.adminRole).members.forEach((member) => {
+        message.guild.roles.cache.get(this.adminRole).members.forEach((member) => {
             member.user.send('Somebody has asked a question');
         });
         
