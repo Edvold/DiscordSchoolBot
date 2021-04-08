@@ -131,6 +131,7 @@ class GroupMaker {
     }
 
     retrieveStudents(message) {
+        // get all students back to the main channel
         const students = message.guild.members.cache.filter(m => m.presence.status === "online");
             let onlineStudents = [];
             students.forEach(m => {

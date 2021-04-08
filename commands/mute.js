@@ -33,7 +33,7 @@ class Mute {
         const muteRole = message.guild.roles.cache.find(role => role.name === 'Mute');
 
         if (name === "") {
-            // find all students and put them in array
+            // changes role of either all students or a specific one to mute role
             this.mutedPersons = message.guild.roles.cache.get(this.studentRole).members.map(m=>message.guild.members.cache.get(m.id));
 
             this.mutedPersons.forEach((member) => {
@@ -43,7 +43,6 @@ class Mute {
 
         } else {
             const student = message.guild.members.cache.find(user => user.displayName === name);
-            console.log(typeof this.mutedPersons);
             this.mutedPersons.push(student);
             student.roles.remove(elevRole);
             student.roles.add(muteRole);
@@ -52,7 +51,7 @@ class Mute {
     }
 
     unmute(message, name = "") {
-
+        // changes role of either all students or a specific one to non-mute (student) role 
         const elevRole = message.guild.roles.cache.find(role => role.name === 'Elev');
         const muteRole = message.guild.roles.cache.find(role => role.name === 'Mute');
 

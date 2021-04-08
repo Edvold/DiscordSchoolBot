@@ -24,6 +24,7 @@ class Absence {
     }
 
     checkAbsence(message) {
+        // returns all offline students
         const students = message.guild.members.cache.filter(m => m.presence.status === "offline");
         let offlineStudents = [];
         students.forEach(m => {

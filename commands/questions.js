@@ -27,6 +27,8 @@ class Questions {
     }
 
     add(text) {
+        //adds a question to the questions list
+        //removing the 'add' from the text
         text = text.substring(4);
         this.questions.push(text);
 
@@ -34,6 +36,7 @@ class Questions {
     }
 
     get(all) {
+        // returns either all questions or a random one
         if (all) {
             const array = this.questions;
             this.questions = [];
@@ -47,13 +50,12 @@ class Questions {
     }
 
     sendNotification(message) {
+        // notifies the teachers that a question has been asked
         const teachers = message.guild.roles.cache.get(this.adminRole).members.forEach((member) => {
             member.user.send('Somebody has asked a question');
         });
         
     }
-
-
 }
 
 const questions = new Questions();

@@ -89,6 +89,7 @@ class Hands {
     }
 
     returnHands() {
+        // returns everybody with their hands up
         if (this.hands.length === 0) {
             return "Nobody has raised their hand";
         }
