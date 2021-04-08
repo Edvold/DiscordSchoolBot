@@ -25,9 +25,7 @@ class Config {
                 json[key] = args[1];
             }
         }
-
         
-
         fs.writeFileSync(this.file, JSON.stringify(json));
     }
 }
