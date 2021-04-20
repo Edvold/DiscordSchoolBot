@@ -1,4 +1,4 @@
-const config = require('../config.json')
+const config = require('../config.json');
 
 module.exports =  {
     name: 'groups',
@@ -68,6 +68,7 @@ class GroupMaker {
             if (groupAmount === 0) {
                 // Teacher wants to create more groups than there are students
                 message.author.send("Error: Not enough students to create the desired amount of groups");
+                return;
             }
 
             for (let i = 0; i<groupAmount; i++) {
