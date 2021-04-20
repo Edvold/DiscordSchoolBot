@@ -27,6 +27,7 @@ class Config {
         }
         
         fs.writeFileSync(this.file, JSON.stringify(json));
+        message.channel.send(`Successfully changed the value of the key ${args[0]} to ${args[1]}`)
     }
 }
 
