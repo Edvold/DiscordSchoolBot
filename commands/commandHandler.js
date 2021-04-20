@@ -29,7 +29,7 @@ module.exports = (client, options) => {
                 }
 
                 //split message into array with regex
-                const args = content.split(/[ ]+/);
+                const args = content.split(/\s+/);
 
                 //Remove the command
                 args.splice(0, 1);
