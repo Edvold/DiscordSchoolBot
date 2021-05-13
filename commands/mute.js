@@ -45,6 +45,10 @@ class Mute {
 
         } else {
             const student = message.guild.members.cache.find(user => user.displayName === name);
+            if (student === null) {
+                message.channel.send('Couldn\'t find the person you were looking for');
+                return; 
+            }
             this.mutedPersons.push(student);
             student.roles.remove(elevRole);
             student.roles.add(muteRole);
