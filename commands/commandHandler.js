@@ -13,7 +13,7 @@ module.exports = (client, options) => {
     } = options;
     
 
-    //Convert commands to an array
+    //Convert commands to an array if string
     if (typeof commands === 'string') {
         commands = [commands];
     }

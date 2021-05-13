@@ -16,7 +16,7 @@ module.exports = {
             if (args[1] === 'all') return message.channel.send(questions.get(true));
             message.channel.send(questions.get(false));
         } else {
-            message.channel.send(`Uknown argument. Try either of the following arguments: ${this.expectedArgs}`);
+            message.channel.send(`Uknown argument. Try either of the following arguments: ${module.exports.expectedArgs}`);
         }
     }
 }

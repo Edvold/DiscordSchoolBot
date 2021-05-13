@@ -7,6 +7,7 @@ module.exports = {
     expectedArgs: '[name of config settings] [new value]',
     minArgs: 2,
     maxArgs: 2,
+    permissions: ['ADMINISTRATOR'],
     callback: (message, args, text) => {
         config.edit(message, args);
     }
@@ -26,10 +27,10 @@ class Config {
                 fs.writeFileSync(this.file, JSON.stringify(json));
                 message.channel.send(`Successfully changed the value of the key ${args[0]} to ${args[1]}`);
                 return;
-            }
-            message.channel.send('Error: Couldn\'t find the settings you were looking for');
+            } 
+            
         }
-        
+        message.channel.send('Error: Couldn\'t find the settings you were looking for');
         
     }
 }

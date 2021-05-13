@@ -16,7 +16,7 @@ module.exports =  {
         }  else if (args[0] === 'back') {
             group.retrieveStudents(message);
         } else {
-            message.channel.send(`Uknown argument. Try either of the following arguments: ${this.expectedArgs}`);
+            message.channel.send(`Uknown argument. Try either of the following arguments: ${module.exports.expectedArgs}`);
         }
     }
 }

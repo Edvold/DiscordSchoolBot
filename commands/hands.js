@@ -11,9 +11,9 @@ module.exports = {
         switch(args[0]) {
             case 'raise':
                 // tries to raise hands
-                let succes = handsClass.raiseHand(message.member.displayName) === "succes" ? true : false;
+                let succes = handsClass.raiseHand(message.member.displayName) === "success" ? true : false;
                 if (!succes) {
-                    message.author.send("Your hands is already raised");
+                    message.author.send("Your hand is already raised");
                 } else if (succes) {
                     message.author.send("Succesfully raised your hand");
                 }
@@ -31,7 +31,7 @@ module.exports = {
                         handsClass.lowerHand();
                     }
                 } else {
-                    let succes = handsClass.lowerHand(message.member.displayName) === "succes" ? true : false;
+                    let succes = handsClass.lowerHand(message.member.displayName) === "success" ? true : false;
                     if(!succes) {
                         message.author.send("You can only lower your hand if it is raised")
                     } else if (succes) {
@@ -47,9 +47,10 @@ module.exports = {
                 } else {
                     message.author.send("You don't have permission to use this command");
                 }
+                break;
 
             default:
-                message.channel.send(`Uknown argument. Try either of the following arguments: ${this.expectedArgs}`);
+                message.channel.send(`Uknown argument. Try either of the following arguments: ${module.exports.expectedArgs}`);
                 break;
                 
         }
@@ -72,7 +73,7 @@ class Hands {
             return 'error'; 
         }
         this.hands.push(name);
-        return 'succes'
+        return 'success'
     }
 
     lowerHand(name = "") {
@@ -90,7 +91,7 @@ class Hands {
             return 'error'; 
         }
         this.hands.splice(index, 1);
-        return 'succes'
+        return 'success';
     }
 
     returnHands() {

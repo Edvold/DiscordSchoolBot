@@ -3,9 +3,9 @@ module.exports = {
     name: 'mute',
     description: 'Mute students',
     commands: ['mute', 'silence', 'm', 'dæmp', 'unmute', 'um', 'udæmp'],
-    expectedArgs: '(student) OR (student)',
-    minArgs: 1,
-    maxArgs: 2,
+    expectedArgs: '(student)',
+    minArgs: 0,
+    maxArgs: 1,
     permissions: ['ADMINISTRATOR'],
     callback: (message, args, text) => {
 
