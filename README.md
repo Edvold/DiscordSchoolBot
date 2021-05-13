@@ -20,7 +20,7 @@ Via a few easy-to-learn commands you can get the bot to do everything from autom
     - Student Role - Basic permissions
     - Mute role - Like student role but no permissions to speak  
 
-Add a file called *config.json*
+Add a file called *config.json* located in the root of the project
  The JSON file requires the following keys:
  - token
  - adminRole
