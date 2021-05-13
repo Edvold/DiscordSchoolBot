@@ -30,7 +30,7 @@ class Schedule {
         const date = new Date(args[5], args[4]-1, args[3], args[1], args[2]-this.notificationTime);
         const time = date - Date.now();
         setTimeout(this.sendNotification, time, message, this.studentRole);
-        message.channel.send('Successfully created a new lesson');
+        message.channel.send(`Successfully created a new lesson at ${new Date(args[5], args[4]-1, args[3], args[1], args[2])}`);
     }
 
     sendNotification(message, studentRole) {        
