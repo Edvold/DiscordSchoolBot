@@ -90,10 +90,6 @@ class GroupMaker {
                     this.groups[i].push(students[i]);
                 }
             }
-
-
-
-
     }
 
     channelMaker(message, groupAmount) {
