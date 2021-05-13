@@ -40,10 +40,11 @@ To get role ID:
 To get channel ID:
 - Right-click on main voice channel → copy ID
 
+The prefix can be whatever the user desires. The recommended choice is '!'.
 
 ## Launch Bot
 To turn on the bot do the following:
 - Open commando prompt and navigate to the project folder
-- Type *nodejs index.js*
+- Type *node index.js*
 - Await the message *'Schoolbot is online'*
 - The school bot is now running
