@@ -33,7 +33,7 @@ module.exports = {
                 } else {
                     let succes = handsClass.lowerHand(message.member.displayName) === "success" ? true : false;
                     if(!succes) {
-                        message.author.send("You can only lower your hand if it is raised")
+                        message.author.send("You can only lower your hand if it is raised");
                     } else if (succes) {
                         message.author.send("Succesfully lowered your hand");
                     }
