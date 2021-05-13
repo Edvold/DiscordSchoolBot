@@ -42,11 +42,15 @@ module.exports = {
 
             case 'get':
                 // Can only be executed by teacher role
-                if (message.member.roles.cache.has('811920217377865738')) {
+                if (message.member.roles.cache.has(config.adminRole)) {
                     message.channel.send(handsClass.returnHands());
                 } else {
                     message.author.send("You don't have permission to use this command");
                 }
+
+            default:
+                message.channel.send(`Uknown argument. Try either of the following arguments: ${this.expectedArgs}`);
+                break;
                 
         }
     }
@@ -79,6 +83,7 @@ class Hands {
             return;
         }
 
+        // index returns -1 if list doesn't contain name
         let index = this.hands.indexOf(name);
         if (index < 0) {
             // give error message

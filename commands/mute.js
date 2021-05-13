@@ -14,8 +14,10 @@ module.exports = {
 
         if (firstWord === 'mute' || firstWord === 'silence' || firstWord === 'm' || firstWord === 'dæmp') {
             muteClass.mute(message, args[0]);
-        } else {
+        } else if (firstWord === 'unmute' || firstWord === 'um' || firstWord === 'udæmp') {
             muteClass.unmute(message, args[0]);
+        } else {
+            message.channel.send(`Uknown argument. Try either of the following arguments: ${this.expectedArgs}`);
         }
     }
 }

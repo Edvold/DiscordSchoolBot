@@ -1,6 +1,7 @@
 const {prefix} = require('../config.json');
 
 module.exports = (client, options) => {
+    // retrieving contents of file
     let {
         commands,
         expectedArgs = '',
@@ -18,6 +19,9 @@ module.exports = (client, options) => {
     }
     
     client.on('message', message => {
+        // message recieved
+
+        // retrieving contents of message
         const {member, content, guild} = message;
 
         //check if command exists
@@ -46,5 +50,6 @@ module.exports = (client, options) => {
                 return;
             }
         }
+
     });
 }

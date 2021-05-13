@@ -16,9 +16,11 @@ client.on('ready', () => {
     const handlerName = 'commandHandler.js';
     const commandHandler = require(`./commands/${handlerName}`);
     function readCommands(dir) {
+        // getting all files from directory
         const files = fs.readdirSync(path.join(__dirname, dir));
         for (file of files) {
             if (file !== handlerName) {
+                // preparing files for use
                 const option = require(path.join(__dirname, dir, file));
                 commandHandler(client, option);
             }

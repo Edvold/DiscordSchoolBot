@@ -11,6 +11,8 @@ module.exports = {
     callback: (message, args, text) => {
         if (args[0] === 'add') {
             schedule.addDate(message, args);
+        } else {
+            message.channel.send(`Uknown argument. Try either of the following arguments: ${this.expectedArgs}`);
         }
     }
 }

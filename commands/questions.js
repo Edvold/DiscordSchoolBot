@@ -15,6 +15,8 @@ module.exports = {
             if (questions.questions.length === 0) return message.author.send('There are no questions at the moment');
             if (args[1] === 'all') return message.channel.send(questions.get(true));
             message.channel.send(questions.get(false));
+        } else {
+            message.channel.send(`Uknown argument. Try either of the following arguments: ${this.expectedArgs}`);
         }
     }
 }

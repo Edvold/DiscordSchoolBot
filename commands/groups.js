@@ -15,6 +15,8 @@ module.exports =  {
             message.channel.send(group.groupHandler(message, false, args[1]));
         }  else if (args[0] === 'back') {
             group.retrieveStudents(message);
+        } else {
+            message.channel.send(`Uknown argument. Try either of the following arguments: ${this.expectedArgs}`);
         }
     }
 }
@@ -31,7 +33,7 @@ class GroupMaker {
         this.groups = [];
 
         if (onlyOnline === true) {
-            // make groups only with students online
+            // make groups only with students online for more short-term groups
             
             const students = message.guild.members.cache.filter(m => m.presence.status === "online");
             let onlineStudents = [];
@@ -45,7 +47,7 @@ class GroupMaker {
 
 
         } else {
-            // make groups with every student on server regardless of online or not
+            // make groups with every student on server regardless of online or not for more long-term groups
             
             let students = message.guild.roles.cache.get(this.studentRole).members.map(m=>m.displayName);
             
