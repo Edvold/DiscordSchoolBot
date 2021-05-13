@@ -23,11 +23,14 @@ class Config {
         for (const key in json) {
             if (args[0] === key) {
                 json[key] = args[1];
+                fs.writeFileSync(this.file, JSON.stringify(json));
+                message.channel.send(`Successfully changed the value of the key ${args[0]} to ${args[1]}`);
+                return;
             }
+            message.channel.send('Error: Couldn\'t find the settings you were looking for');
         }
         
-        fs.writeFileSync(this.file, JSON.stringify(json));
-        message.channel.send(`Successfully changed the value of the key ${args[0]} to ${args[1]}`)
+        
     }
 }
 
