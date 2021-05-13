@@ -30,7 +30,7 @@ class GroupMaker {
 
     groupHandler(message, onlyOnline, groupSize) {
         
-        if (!typeof groupSize === int) return 'Error: Second argument needs to be an integer';
+        if (!isNaN(groupSize)) return 'Error: Second argument needs to be an integer';
 
         this.groups = [];
 
