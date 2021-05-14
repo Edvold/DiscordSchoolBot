@@ -48,3 +48,77 @@ To turn on the bot do the following:
 - Type *node index.js*
 - Await the message *'Schoolbot is online'*
 - The school bot is now running
+
+## Commands
+
+Square brackets, [], mean obligatory arugments  
+Round brackets, (), mean optional arguments
+
+Template:
+'![command] (argument1) (argument2)'
+
+### Absence
+Returns a list of absent students
+
+#### Commands
+- 'absence', 'fravær', 'absent'
+
+### Config
+Change config settings
+
+#### Commands
+- 'config', 'cfg', 'c', 'settings'
+
+#### Arguments
+- [name of config setting] [new value]
+
+### Groups
+Make groups, create group rooms and automatically send students to their designated room.
+
+#### Commands
+- 'group', 'groups', 'gm', 'gruppe', 'grupper'  
+
+#### Arguments
+- [online] [students per group]
+- [all] [students per group]
+- [back]
+
+### Hands
+Let students raise their hands
+
+#### Commands
+- 'hands', 'hand', 'hånd', 'hænder'  
+
+#### Arguments
+- [raise]
+- [lower] (name)
+- [get]
+
+### Mute
+Mute students
+
+#### Commands
+- 'mute', 'silence', 'm', 'dæmp'
+- 'unmute', 'um', 'udæmp'
+
+#### Arguments
+- (student)
+
+### Questions
+Enable students to ask questions
+
+#### Commands
+- 'question', 'questions', 'quest', 'q', 'spørgsmål'  
+
+#### Arguments
+- [add]
+- [get] (all)
+
+### Schedule
+Send notification 5 minutes before the start of lesson
+
+#### Commands
+- schedule', 'skema', 'sch', 'sk'
+
+#### Arguments
+- [add] [hour] [minute] [day] [month] [year]
