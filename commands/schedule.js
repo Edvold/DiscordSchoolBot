@@ -26,7 +26,8 @@ class Schedule {
 
     addDate(message, args) {
 
-        // notification is 5 minutes before lesson
+        // notification is 5 minutes before lesson. Months are zero-indexed
+        // date: year, month, day, hour, minute
         const date = new Date(args[5], args[4]-1, args[3], args[1], args[2]-this.notificationTime);
         const time = date - Date.now();
         setTimeout(this.sendNotification, time, message, this.studentRole);
