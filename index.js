@@ -8,8 +8,6 @@ const path = require('path');
 
 const fs = require('fs');
 
-client.commands = new Discord.Collection();
-
 client.on('ready', () => {
     console.log('Schoolbot is online');
 
