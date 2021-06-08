@@ -68,8 +68,8 @@ class Hands {
         // checks if person already has raised their hand
 
         let index = this.hands.indexOf(name);
-        if (!index > 0) {
-            // give error message
+        if (index >= 0) {
+            // student has already raised their hand
             return 'error'; 
         }
         this.hands.push(name);
@@ -87,7 +87,7 @@ class Hands {
         // index returns -1 if list doesn't contain name
         let index = this.hands.indexOf(name);
         if (index < 0) {
-            // give error message
+            // students has not raised their hand
             return 'error'; 
         }
         this.hands.splice(index, 1);
