@@ -45,7 +45,7 @@ module.exports = (client, options) => {
                 }
 
                 //run the command
-                callback(message, args, args.join(' '))
+                callback(message, args, args.join(' '));
 
                 return;
             }
